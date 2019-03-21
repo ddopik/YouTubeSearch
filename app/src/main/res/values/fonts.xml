@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+    <dimen name="font_very_small">9sp</dimen>
+    <dimen name="font_small">12sp</dimen>
+    <dimen name="font_normal">14sp</dimen>
+    <dimen name="text_medium_s">18sp</dimen>
+    <dimen name="text_medium">21sp</dimen>
+    <dimen name="font_large">23sp</dimen>
+
+
+    <dimen name="text_title_head">21sp</dimen>
+
+
+
+    <dimen name="text_head_xl">45sp</dimen>
+    <dimen name="signing_head_text_size">36sp</dimen>
+    <dimen name="sign_up_logo_sub_head">23sp</dimen>
+    <dimen name="sign_up_text_size">21sp</dimen>
+    <dimen name="sign_up_text_size_meduim">18sp</dimen>
+    <dimen name="sign_up_text_size_small">16sp</dimen>
+</resources>

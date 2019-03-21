@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomRecyclerView">
+        <attr name="orientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+            <enum name="grid" value="2" />
+        </attr>
+        <attr name="span_size" format="integer" />
+    </declare-styleable>
+</resources>

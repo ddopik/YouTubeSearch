@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">YouTubeSearcher</string>
+    <string name="error_logout">An error occured. Try again later.</string>
+    <string name="connection_problem_check_network">Connection error. Please, check your network.</string>
+    <string name="send_feed_back">Send Feed Back</string>
+    <string name="client_email_feedback_subject">client_feed_back</string>
+    <string name="search">Search</string>
+
+</resources>

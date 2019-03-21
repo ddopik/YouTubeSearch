@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#212121</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#f5c424</color>
+
+    <color name="colorRed">#DA463A</color>
+    <color name="colorGray">#4D4D4F</color>
+    <color name="colorlightGray">#54545C</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorlightg">#A2A2A2</color>
+    <color name="black">#000000</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="white">#FFFFFF</color>
+
+    <color name="gray200">#EEEEEE</color>
+    <color name="gray400">#BDBDBD</color>
+    <color name="gray700">#616161</color>
+    <color name="gray800">#424242</color>
+    <color name="gray900">#212121</color>
+
+    <color name="whiteF6F8FA">#F6F8FA</color>
+    <color name="orangeF57F20">#F57F20</color>
+    <color name="orange900">#EF6C00</color>
+    <color name="orangeF58624">#F58624</color>
+    <color name="orangeF55124">#F55124</color>
+    <color name="orange003812">#003812</color>
+    <color name="cyan40BAEC">#40BAEC</color>
+    <color name="cyan1DA1F2">#1DA1F2</color>
+    <color name="cyan3D8DF5">#3D8DF5</color>
+    <color name="cyan3DBFF5">#3DBFF5</color>
+    <color name="blue3E549C">#3E549C</color>
+    <color name="gray242B31">#242B31</color>
+    <color name="gray2B2E00">#2B2E00</color>
+    <color name="grayDFE4E8">#DFE4E8</color>
+    <color name="grayEDF0F3">#EDF0F3</color>
+    <color name="gray96A0AA">#96A0AA</color>
+    <color name="gray677078">#677078</color>
+    <color name="gray45494E">#45494E</color>
+    <color name="grayC3CDD5">#C3CDD5</color>
+    <color name="grayF6F8FA">#F6F8FA</color>
+    <color name="black677078">#677078</color>
+    <color name="black242B31">#242B31</color>
+    <color name="text_input_color">#f5c424</color>
+    <color name="text_input_color_light">#0FF5C424</color>
+    <color name="tab_background">#2f343a</color>
+    <color name="bgBottomNavigation">#fe485a</color>
+    <color name="user_profile_text_header_color">#96A0AA</color>
+    <color name="default_tool_bar_color">#2f343a</color>
+
+        <color name="green">#ADFF39</color>
+        <color name="color_option_menu">#FF3990</color>
+        <color name="filter_label_normal">#EEEEEE</color>
+        <color name="filter_label_selected">#FFFFFF</color>
+    <color name="black_transparent">#80000000</color>
+</resources>

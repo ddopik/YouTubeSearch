@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dp2">2dp</dimen>
+    <dimen name="dp4">4dp</dimen>
+    <dimen name="dp6">6dp</dimen>
+    <dimen name="dp8">8dp</dimen>
+    <dimen name="dp10">10dp</dimen>
+    <dimen name="dp12">12dp</dimen>
+    <dimen name="dp14">14dp</dimen>
+    <dimen name="dp16">16dp</dimen>
+    <dimen name="dp18">18dp</dimen>
+    <dimen name="dp20">20dp</dimen>
+    <dimen name="dp22">22dp</dimen>
+    <dimen name="dp24">24dp</dimen>
+    <dimen name="dp26">26dp</dimen>
+    <dimen name="dp28">28dp</dimen>
+    <dimen name="dp30">30dp</dimen>
+    <dimen name="dp32">32dp</dimen>
+    <dimen name="dp45">45dp</dimen>
+    <dimen name="dp65">65dp</dimen>
+    <dimen name="dp80">80dp</dimen>
+
+    <dimen name="item_opacity">.4</dimen>
+    <dimen name="map_location_marker_icon_width">500dp</dimen>
+    <dimen name="map_location_marker_icon_height">500dp</dimen>
+    <dimen name="logo_width">60dp</dimen>
+    <dimen name="logo_height">60dp</dimen>
+    <dimen name="activity_search_tab_h">35dp</dimen>
+    <dimen name="activity_search_tab_h_large">45dp</dimen>
+    <dimen name="circle_indicator_pager_height">8dp</dimen>
+    <dimen name="circle_indicator_pager_width">8dp</dimen>
+    <dimen name="social_login_btn_height">44dp</dimen>
+    <dimen name="sign_up_text_input_margin_top">12dp</dimen>
+    <dimen name="welcome_screen_text_height">150dp</dimen>
+    <dimen name="item_card_corner_radius">4dp</dimen>
+    <dimen name="item_card_elevation">2dp</dimen>
+    <dimen name="splash_logo_size">85dp</dimen>
+    <dimen name="widgets_cap">8dp</dimen>
+    <dimen name="widgets_padding">8dp</dimen>
+    <dimen name="widgets_padding_s">4dp</dimen>
+    <dimen name="activity_padding">16dp</dimen>
+    <dimen name="inner_header_preview_height">320dp</dimen>
+    <dimen name="header_img_size">85dp</dimen>
+
+
+
+    <dimen name="search_bar_radius">10dp</dimen>
+
+
+
+
+
+
+
+
+
+
+</resources>
