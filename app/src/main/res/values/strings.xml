@@ -5,5 +5,7 @@
     <string name="send_feed_back">Send Feed Back</string>
     <string name="client_email_feedback_subject">client_feed_back</string>
     <string name="search">Search</string>
-
+    <string name="no_internet_conniction">No internet connection</string>
+    <string name="youTubeApiKey"> AIzaSyCkF1hPXdLWnB7Y3ZW8fFbVbrCpZ3BgQgA</string>
+    <string name="result">Result</string>
 </resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp8"
+   >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp8">
+
+        <ImageView
+            android:id="@+id/main_review_thumb_image"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:scaleType="centerCrop"
+            android:layout_margin="4dp"
+            tools:src="@drawable/default_error_img"/>
+
+
+        <TextView
+            android:id="@+id/channel_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_toEndOf="@+id/main_review_thumb_image"
+            android:layout_toRightOf="@+id/main_review_thumb_image"
+            android:text="@{name}"
+            tools:text="Ahmed" />
+
+        <TextView
+            android:id="@+id/main_review_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/channel_title"
+            android:layout_toEndOf="@+id/main_review_thumb_image"
+            android:layout_toRightOf="@+id/main_review_thumb_image"
+            android:text="15 oct 2017" />
+
+        <TextView
+            android:id="@+id/description_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/main_review_thumb_image"
+            android:layout_margin="4dp"
+            tools:text="description " />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

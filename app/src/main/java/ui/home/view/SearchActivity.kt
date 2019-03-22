@@ -1,16 +1,9 @@
 package ui.home.view
 
 import android.os.Bundle
-import android.provider.SyncStateContract
-import android.util.Log
 import android.view.View
 import android.widget.EditText
-import android.widget.FrameLayout
-import android.widget.ImageButton
-import android.widget.TextView
 import base.BaseActivity
-import base.widgets.CustomRecyclerView
-import base.widgets.CustomTextView
 import base.widgets.PagingController
 import com.example.youtubesearcher.R
 import com.jakewharton.rxbinding2.widget.RxTextView
@@ -20,18 +13,26 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_search.*
+import ui.home.model.Item
+import ui.home.model.YouTubeVideoSearchResponse
+import ui.home.presenter.SearchActivityPresenter
+import ui.home.presenter.SearchActivityPresenterImpl
 import util.Const.Companion.QUERY_SEARCH_TIME_OUT
+import util.Utilities
 import java.util.concurrent.TimeUnit
 
 /**
  * Created by abdalla_maged on 10/29/2018.
  */
-class SearchActivity : BaseActivity() {
+class SearchActivity : BaseActivity(), SearchActivityView {
 
     private var searchView: EditText? = null
     private val disposable = CompositeDisposable()
+    private val videoList: MutableList<Item> = ArrayList()
+    private var youTubeVedioListAdapter: YouTubeVedioListAdapter? = null
+    private var searchActivityPresenter: SearchActivityPresenter? = null
     var pagingController: PagingController? = null
-    var searchRv: CustomRecyclerView? = null
+    private var nextPageToken: String = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,16 +48,17 @@ class SearchActivity : BaseActivity() {
     override fun initView() {
 
         searchView = findViewById(R.id.search_view)
+        youTubeVedioListAdapter = YouTubeVedioListAdapter(videoList)
+        search_container.adapter = youTubeVedioListAdapter
 
 
     }
 
     override fun initPresenter() {
-
+        searchActivityPresenter = SearchActivityPresenterImpl(baseContext, this)
     }
 
     private fun initListener() {
-
 
 
         disposable.add(
@@ -72,12 +74,12 @@ class SearchActivity : BaseActivity() {
         );
 
 
-        pagingController = object : PagingController(searchRv) {
+        pagingController = object : PagingController(search_container) {
             override fun getPagingControllerCallBack(page: Int) {
-//                if (albumSearch.getText().length > 0) {
-//                    promptView.setVisibility(View.GONE)
-//                    albumSearchPresenter.getAlbumSearchQuery(albumSearch.getText().toString().trim({ it <= ' ' }), page)
-//                }
+                if (search_view.getText().isNotEmpty() ) {
+                    nextPageToken=""
+                    searchActivityPresenter?.getNextYouTubeSearchVideo(search_view.text.toString().trim({ it <= ' ' }), nextPageToken)
+                }
             }
         }
 
@@ -90,10 +92,10 @@ class SearchActivity : BaseActivity() {
 
 
                 // user cleared search get default data
+                videoList.clear()
+                nextPageToken=""
+                searchActivityPresenter?.getYouTubeSearchVideo(search_view.text.toString().trim { it <= ' ' })
 
-//                albumSearchList.clear()
-//                albumSearchPresenter.getAlbumSearchQuery(albumSearch.getText().toString().trim({ it <= ' ' }), 0)
-//                Log.e(TAG, "search string: " + albumSearch.getText().toString())
 
             }
 
@@ -109,6 +111,23 @@ class SearchActivity : BaseActivity() {
 
     override fun showToast(msg: String) {
         super.showToast(msg)
+    }
+
+    override fun viewYouTubeResult(youTubeVideoSearchResponse: YouTubeVideoSearchResponse) {
+
+        nextPageToken = youTubeVideoSearchResponse.nextPageToken
+        videoList.addAll(youTubeVideoSearchResponse.items)
+        search_result.text = """${videoList.size}  ${resources.getString(R.string.result)}"""
+        youTubeVedioListAdapter?.notifyDataSetChanged()
+        Utilities.hideKeyboard(this)
+    }
+
+    override fun viewProgress(state: Boolean) {
+        if (state) {
+            search_activity_progress.visibility = View.VISIBLE
+        } else {
+            search_activity_progress.visibility = View.INVISIBLE
+        }
     }
 
     override fun onDestroy() {
