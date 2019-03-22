@@ -29,7 +29,7 @@ class SearchActivity : BaseActivity(), SearchActivityView {
     private var searchView: EditText? = null
     private val disposable = CompositeDisposable()
     private val videoList: MutableList<Item> = ArrayList()
-    private var youTubeVedioListAdapter: YouTubeVedioListAdapter? = null
+    private var youTubeVideoListAdapter: YouTubeVideoListAdapter? = null
     private var searchActivityPresenter: SearchActivityPresenter? = null
     var pagingController: PagingController? = null
     private var nextPageToken: String = ""
@@ -48,8 +48,13 @@ class SearchActivity : BaseActivity(), SearchActivityView {
     override fun initView() {
 
         searchView = findViewById(R.id.search_view)
-        youTubeVedioListAdapter = YouTubeVedioListAdapter(videoList)
-        search_container.adapter = youTubeVedioListAdapter
+        youTubeVideoListAdapter = YouTubeVideoListAdapter(videoList, object : YouTubeVideoListAdapter.OnItemClickListener {
+            override fun onItemClicked(item: Item) {
+                Utilities.watchYoutubeVideo(baseContext, item.id?.videoId)
+            }
+
+        })
+        search_container.adapter = youTubeVideoListAdapter
 
 
     }
@@ -76,8 +81,8 @@ class SearchActivity : BaseActivity(), SearchActivityView {
 
         pagingController = object : PagingController(search_container) {
             override fun getPagingControllerCallBack(page: Int) {
-                if (search_view.getText().isNotEmpty() ) {
-                    nextPageToken=""
+                if (search_view.text.isNotEmpty()) {
+                    nextPageToken = ""
                     searchActivityPresenter?.getNextYouTubeSearchVideo(search_view.text.toString().trim({ it <= ' ' }), nextPageToken)
                 }
             }
@@ -93,7 +98,7 @@ class SearchActivity : BaseActivity(), SearchActivityView {
 
                 // user cleared search get default data
                 videoList.clear()
-                nextPageToken=""
+                nextPageToken = ""
                 searchActivityPresenter?.getYouTubeSearchVideo(search_view.text.toString().trim { it <= ' ' })
 
 
@@ -118,7 +123,7 @@ class SearchActivity : BaseActivity(), SearchActivityView {
         nextPageToken = youTubeVideoSearchResponse.nextPageToken
         videoList.addAll(youTubeVideoSearchResponse.items)
         search_result.text = """${videoList.size}  ${resources.getString(R.string.result)}"""
-        youTubeVedioListAdapter?.notifyDataSetChanged()
+        youTubeVideoListAdapter?.notifyDataSetChanged()
         Utilities.hideKeyboard(this)
     }
 
@@ -130,8 +135,10 @@ class SearchActivity : BaseActivity(), SearchActivityView {
         }
     }
 
+
     override fun onDestroy() {
         super.onDestroy()
         disposable.clear()
     }
+
 }

@@ -11,7 +11,7 @@ import base.GlideApp
 import com.example.youtubesearcher.R
 import ui.home.model.Item
 
-class YouTubeVedioListAdapter(val videoList: List<Item>) : RecyclerView.Adapter<YouTubeVedioListAdapter.YouTubeVedioItemViewHolder>() {
+class YouTubeVideoListAdapter(val videoList: List<Item>, val onItemClickListener:OnItemClickListener) : RecyclerView.Adapter<YouTubeVideoListAdapter.YouTubeVedioItemViewHolder>() {
 
 
     private var context: Context? = null
@@ -43,6 +43,9 @@ class YouTubeVedioListAdapter(val videoList: List<Item>) : RecyclerView.Adapter<
             youTubeVedioItemViewHolder.descriptionText.text = it.snippet?.description
         }
 
+        (youTubeVedioItemViewHolder as View ).setOnClickListener {
+            onItemClickListener.onItemClicked(videoList[position])
+        }
     }
 
     class YouTubeVedioItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -51,5 +54,9 @@ class YouTubeVedioListAdapter(val videoList: List<Item>) : RecyclerView.Adapter<
         var channelTitle: TextView = view.findViewById(R.id.channel_title)
         var mainReviewDate: TextView = view.findViewById(R.id.main_review_date);
         var descriptionText: TextView = view.findViewById(R.id.description_text);
+    }
+
+    interface  OnItemClickListener{
+        fun onItemClicked(item:Item)
     }
 }
